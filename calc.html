@@ -1,0 +1,182 @@
+<!DOCTYPE html> 
+<html>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+        .switch {
+          position: relative;
+          display: inline-block;
+          width: 60px;
+          height: 20px;
+        }
+
+        .switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 15px;
+          bottom: 0;
+          background-color: #ccc;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+
+        .slider:before {
+          position: absolute;
+          content: "";
+          height: 13px;
+          width: 11px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+
+        input:checked+.slider {
+          background-color: #00873E;
+        }
+
+        input:focus+.slider {
+          box-shadow: 0 0 1px #00873E;
+        }
+
+        input:checked+.slider:before {
+          -webkit-transform: translateX(26px);
+          -ms-transform: translateX(26px);
+          transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+          border-radius: 11px;
+        }
+
+        .slider.round:before {
+          border-radius: 50%;
+        }
+      </style>
+    </head>
+    <body>
+      <table style="width:100%">
+        <tr>
+          <th>
+            <h1 style="color:#00873E">
+              <strong>Calculadora de Voluntários</strong>
+            </h1>
+                        <p style="color:#C0C0C0	">Baseada na Versão 3 do Manual Paroquial (Jan 2023)</p>
+
+          <th>
+            <img src="https://www.lisboa2023.org/_next/image?url=https%3A%2F%2FEPJMJ2023QABLOB-gmehapawbmdqb2cb.z01.azurefd.net%2Fblbqajmj2023%2Fassets%2Flogotipo_jmj_243b9c7579.png&w=384&q=75" style="width:20%" align="right"></img>
+          </th>
+          </th>
+        </tr>
+      </table>
+      <HR SIZE=2>
+      <html>
+        <head>
+          <style type="text/css">
+            body {
+              margin: 30px;
+            }
+          </style>
+        </head>
+        <body>
+          <form>
+            <h3 style="color:#00873E">
+              <strong>Acolhimento de Peregrinos </strong>
+            </h3>
+            <li style="color:#00873E">Preencha com valores médios ou simule para cada espaço submetido na plataforma.</li>
+            <table style="height: 118px;" width="658">
+              <tbody>
+                <tr>
+                  <td > &nbsp Nº Peregrinos: <input type="text" id="v1" />
+                    <br>
+                  </td>
+                  <td>&nbsp Nº Espaços: <input type="text" id="v2" />
+                    <br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <HR SIZE=2>
+            <body>
+              <form>
+                <br>
+                <h3 style="color:#00873E">
+                  <strong>Pastoral - Catequese / Encontros Rise Up </strong>
+                </h3>
+            <li style="color:#00873E">Preencha com valores médios ou simule para cada espaço submetido na plataforma.</li>
+                <table style="height: 118px;" width="658">
+                  <tbody>
+                    <tr>
+                      <td style="width: 328.5px;" height=70> &nbsp Nº Peregrinos: <input type="text" id="v3" />
+                        <br>
+                      </td>
+                      <td style="width: 328.5px;">&nbsp Nº Espaços: <input type="text" id="v4" />
+                        <br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 328.5px;"> &nbsp Técnico de Som: <label class="switch">
+                          <input type="checkbox" class ="ts5" id="v5">
+                          <span class="slider round"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 328.5px;" height=70> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Motorista: <label class="switch">
+                          <input type="checkbox" class ="ts6" id="v6">
+                          <span class="slider round"></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 328.5px;"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Tradutor: <label class="switch">
+                          <input type="checkbox" class ="ts7" id="v7">
+                          <span class="slider round"></span>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <HR SIZE=7>
+            </body>
+      </html>
+      <br>
+      <input type="button" onClick="multiplyBy()" Value="Estimar" />
+
+</form>
+<br>
+      <p>Número de Voluntários (Estimado) : <span id="result"></span>
+      </p>
+      <script>
+        function multiplyBy() {
+          
+          num1 = document.getElementById("v1").value;
+          num2 = document.getElementById("v2").value;
+          num3 = document.getElementById("v3").value;
+          num4 = document.getElementById("v4").value;
+          
+          num5 = document.querySelector('.ts5').checked?1:0;
+          num6 = document.querySelector('.ts6').checked?1:0;
+          num7 = document.querySelector('.ts7').checked?1:0;
+
+              vol1 = Math.ceil(num1/100)*4*num2;
+              vol2 = Math.ceil(num3/100)*4*num4;
+
+
+          document.getElementById("result").innerHTML = vol1+ 2*num2+vol2+(num5+num6+num7)*num4;
+        }
+      </script>
+    </body>
+  </html>
